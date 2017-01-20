@@ -1,0 +1,6 @@
+name: Botkit Starter Bot
+description: A starting point for build a Slack App with Botkit on Beep Boop
+config:
+  - name: BOTKIT_STUDIO_TOKEN
+    friendly_name: Botkit Studio Token
+    description: Token associated with your bot in Botkit Studio
