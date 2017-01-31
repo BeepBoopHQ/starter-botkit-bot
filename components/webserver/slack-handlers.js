@@ -33,6 +33,21 @@ module.exports = (webserver, controller) => {
     controller.handleWebhookPayload(req, res)
   })
 
+  // Register default Beep Boop urls as well for convenience
+  webserver.post('/slack/action', verifyToken, (req, res) => {
+    res.status(200)
+
+    // Now, pass the webhook into be processed
+    controller.handleWebhookPayload(req, res)
+  })
+
+  webserver.post('/slack/command', verifyToken, (req, res) => {
+    res.status(200)
+
+    // Now, pass the webhook into be processed
+    controller.handleWebhookPayload(req, res)
+  })
+
   // Proxy `bb.team_added` to botkit's `create_team`
   controller.on('bb.team_added', function (bot) {
     controller.trigger('create_team', [bot, bot.team_info])
